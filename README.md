@@ -49,8 +49,10 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 
 ## Business Requirements
-* Describe your business requirements
 
+Dr. Emily Davis, chief fertility specialist at Hope Fertility Clinic, has observed varying IVF success rates among patients due to numerous factors. She aims to identify key predictors of IVF success to optimize treatment plans and improve patient outcomes. Dr. Davis seeks to understand how patient attributes and treatment variables correlate with IVF success, focusing on the most impactful factors.
+
+She is particularly interested in predicting success rates for new patients based on their profiles, using a reliable predictive model for more accurate estimations and personalized treatments. To support her team, Dr. Davis requests detailed data visualizations to illustrate key variable relationships and an interactive dashboard for exploring data and making real-time predictions.
 
 ## Hypothesis and how to validate?
 * List here your project hypothesis(es) and how you envision validating it (them) 
