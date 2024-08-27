@@ -104,7 +104,9 @@ To support her team, Dr. Davis requests **detailed data visualizations to illust
 
 1. The success rate of IVF treatments is significantly higher for patients under the age of 35 compared to those aged 35 and above.
 
-2. 
+2. Elective single embryo transfer (eSET) reduces the likelihood of multiple pregnancies without significantly lowering the overall success rate.
+
+3. Patients with a history of endometriosis have lower IVF success rates compared to those without endometriosis.
 
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
