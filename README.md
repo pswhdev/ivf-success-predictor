@@ -3,12 +3,92 @@
 
 ## Dataset Content
 
+The dataset was retrieved from the [Human Fertilization and Emblriology Authority - HFEA website](https://www.hfea.gov.uk/about-us/data-research/).
+
+The dataset includes information collected during fertility treatment cycles about patient and partner characteristics, treatment details, infertility causes, and outcomes related to pregnancy and live births.
+
+The variables are summarized on the table below, where each row represents a specific variable relevant to fertility treatment cycles and the type of data and Description according to the [HEFA's Guide to anonymised register](https://www.hfea.gov.uk/media/2682/guide-to-the-anonymised-register.pdf).
+
+
+| Field                                          | Data Type | Description |
+|------------------------------------------------|-----------|-------------|
+| Patient Age at Treatment                       | Text      | Patient’s age at treatment, banded as follows: 18-34, 35-37, 38-39, 40-42, 43-44, 45-50 |
+| Total Number of Previous IVF Cycles            | Number    | How many treatment cycles of IVF the patient has previously had |
+| Total Number of Previous DI Cycles             | Number    | How many treatment cycles of DI the patient has previously had |
+| Total Number of Previous Pregnancies - IVF and DI | Number | How many times the patient has previously been pregnant through IVF and DI |
+| Total Number of Previous Live Births - IVF or DI | Number | How many live births the patient has had through IVF or DI |
+| Causes of Infertility - Tubal Disease          | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
+| Causes of Infertility - Ovulatory Disorder     | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
+| Causes of Infertility - Male Factor            | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
+| Causes of Infertility - Patient Unexplained    | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
+| Causes of Infertility - Endometriosis          | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
+| Main Reason for Producing Embryos Storing Eggs | Text      | A comma separated list of the main reasons for this cycle which can include: Treatment Now, For Donation, For Storing Eggs, For Research |
+| Stimulation Used                               | Bit       | 1 if this was a stimulated cycle, 0 otherwise |
+| Egg Donor Age at Registration                  | Text      | If donor eggs were used, the donor's age at registration banded as follows: <=20, 21-25, 26-30, 31-35 |
+| Sperm Donor Age at Registration                | Text      | If donor sperm was used, the donor's age at registration banded as follows: <=20, 21-25, 26-30, 31-35, 36-40, 41-45, >45 |
+| Donated Embryo                                 | Bit       | 1 if this cycle used a donated embryo, 0 otherwise |
+| Type of Treatment - IVF or DI                  | Text      | IVF or DI |
+| Specific Treatment Type                        | Text      | A comma separated list of specific treatment types used in this cycle |
+| PGT-M Treatment                                | Bit       | 1 if this cycle involved the use of preimplantation genetic testing for monogenic disorders (formerly PGD), 0 otherwise |
+| PGT-A Treatment                                | Bit       | 1 if this cycle involved the use of preimplantation genetic testing for aneuploidy (formerly PGS), 0 otherwise |
+| Elective Single Embryo Transfer                | Bit       | 1 if this cycle involved the deliberate use of only one embryo, 0 otherwise |
+| Egg Source                                     | Text      | Indicates whether the eggs used in this cycle came from the patient (P) or a donor (D) |
+| Sperm Source                                   | Text      | Indicates whether the sperm used in this cycle came from the patient (P) or a donor (D) |
+| Fresh Cycle                                    | Bit       | 1 if this cycle used fresh embryos, 0 otherwise |
+| Frozen Cycle                                   | Bit       | 1 if this cycle used frozen embryos, 0 otherwise |
+| Eggs Thawed (0/1)                              | Number    | If this cycle used frozen eggs, the number of eggs thawed |
+| Fresh Eggs Collected                           | Text      | Number of eggs collected in this cycle, banded into 5 categories for identifiability |
+| Fresh Eggs Stored (0/1)                        | Number    | The number of eggs collected in this cycle and subsequently frozen |
+| Total Eggs Mixed                               | Text      | Number of eggs mixed with sperm in this cycle, banded into 5 categories for identifiability |
+| Total Embryos Created                          | Text      | Number of embryos created in this cycle, banded into 5 categories for identifiability |
+| Embryos Transferred                            | Number    | The number of embryos transferred into the patient in this cycle |
+| Total Embryos Thawed                           | Text      | Number of embryos thawed in this cycle, banded into 5 categories for identifiability |
+| Embryos Transferred from Eggs Micro-injected   | Number    | The number of embryos transferred into the patient in this cycle that were created using ICSI |
+| Embryos Stored for Use by Patient              | Text      | Number of embryos created and stored for future use by the patient, banded into 5 categories for identifiability |
+| Date of Embryo Transfer                        | Number    | The number of days between embryo transfer and the first date provided in the series: egg collection date; egg thaw date; egg mix date; embryo thaw date; embryo transfer date |
+| Year of Treatment                              | Number    | The year in which this cycle took place |
+| Live Birth Occurrence                          | Bit       | 1 if there were 1 or more live births as a result of this cycle, 0 otherwise |
+| Number of Live Births                          | Number    | The number of live births as a result of this cycle |
+| Early Outcome                                  | Text      | A comma separated list of the results of a patient scan |
+| Number of Foetal Sacs with Fetal Pulsation     | Number    | If foetal sacs were present in the scan, the number of sacs that evidenced foetal pulsation |
+| Heart One Weeks Gestation                      | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks |
+| Heart One Birth Outcome                        | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination |
+| Heart One Birth Weight                         | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
+| Heart One Sex                                  | Text      | The sex of the child: Male (M), Female (F) |
+| Heart One Delivery Date                        | Number    | Year the child was delivered |
+| Heart One Birth Congenital Abnormalities       | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise |
+| Heart Two Weeks Gestation                      | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks |
+| Heart Two Birth Outcome                        | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination |
+| Heart Two Birth Weight                         | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
+| Heart Two Sex                                  | Text      | The sex of the child: Male (M), Female (F) |
+| Heart Two Delivery Date                        | Number    | Year the child was delivered |
+| Heart Two Birth Congenital Abnormalities       | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise |
+| Heart Three Weeks Gestation                    | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks |
+| Heart Three Birth Outcome                      | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination |
+| Heart Three Birth Weight                       | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
+| Heart Three Sex                                | Text      | The sex of the child: Male (M), Female (F) |
+| Heart Three Delivery Date                      | Number    | Year the child was delivered |
+| Heart Three Birth Congenital Abnormalities     | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise |
+| Patient Ethnicity                              | Text      | Information on patient ethnicity has been included |
+| Partner Ethnicity                              | Text      | Information on partner ethnicity has been included |
+| Partner Type                                   | Text      | Information on partner types has been included (i.e., Male partner, female partner, no partner, surrogate) |
+| Partner Age                                    | Text      | Banded partner age information has been added where available |
+
+---
+
+## Project Terms & Jargon
+
+	- A patient is a person who consumes your service or product.
+	- A prospect is a potential customer.
+	- A churned customer is a user who has stopped using your product or service.
+	- This customer has a tenure level, which is the number of months this person has used our product/service.
+
 
 ## Business Requirements
 
 Dr. Emily Davis, chief fertility specialist at Hope Fertility Clinic, has observed varying IVF success rates among patients due to numerous factors. She aims to identify key predictors of IVF success to optimize treatment plans and improve patient outcomes. Dr. Davis seeks to understand how patient attributes and treatment variables correlate with IVF success, focusing on the most impactful factors.
 
-She is particularly interested in predicting success rates for new patients based on their profiles, using a reliable predictive model for more accurate estimations and personalized treatments. To support her team, Dr. Davis requests detailed data visualizations to illustrate key variable relationships and an interactive dashboard for exploring data and making real-time predictions.
+She is particularly interested in predicting success rates for new patients based on their profiles, using a predictive model for more accurate estimations and personalized treatments. To support her team, Dr. Davis requests detailed data visualizations to illustrate key variable relationships and an interactive dashboard for exploring data and making real-time predictions.
 
 ## Hypothesis and how to validate?
 * List here your project hypothesis(es) and how you envision validating it (them) 
@@ -52,19 +132,17 @@ She is particularly interested in predicting success rates for new patients base
 
 ## Credits 
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
+* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
+* You can break the credits section up into Content and Media, depending on what you have included in your project.
 
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- The Business Case is ficticious and was created with the help from AI, more specifically OpenAI ChatGPT.
+- 
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
+- 
 
 
 
