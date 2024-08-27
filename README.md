@@ -78,23 +78,37 @@ The variables are summarized on the table below, where each row represents a spe
 
 ## Project Terms & Jargon
 
-	- A patient is a person who consumes your service or product.
-	- A prospect is a potential customer.
-	- A churned customer is a user who has stopped using your product or service.
-	- This customer has a tenure level, which is the number of months this person has used our product/service.
+	- IVF(In Vitro Fertilization) is a medical procedure where an egg is fertilized by sperm outside the body, with the resulting embryo being implanted into the uterus.
+	- Embryo is the early developmental stage formed after an egg is fertilized by sperm, before implantation in the uterus
+	- A patient is an individual undergoing IVF fertility treatment.
+	- Number of Previous IVF/DI Cycles: The total number of IVF or donor insemination cycles the patient has previously undergone.
+	- Elective Single Embryo Transfer (eSET) is a process where only one embryo is selected for transfer to reduce the risk of multiple pregnancies.
+	- Specific Treatment Type is the exact fertility treatment protocol used, such as ICSI (Intracytoplasmic Sperm Injection), FET (Frozen Embryo Transfer), or standard IVF.
+	- Ovarian Stimulation is a process where medication is used to induce the ovaries to produce multiple eggs in a single cycle.
+	- Fresh vs. Frozen Cycle: A fresh cycle refers to the use of embryos from the current stimulation cycle, while a frozen cycle uses embryos that were frozen from a previous cycle.
+	- PGT-M and PGT-A (Preimplantation Genetic Testing): Genetic tests performed on embryos to identify genetic abnormalities before transfer. PGT-M is for monogenic disorders, and PGT-A is for aneuploidy (chromosome abnormalities).
+	- Endometriosis is a condition where tissue similar to the lining of the uterus grows outside the uterus, potentially affecting fertility.
+	- Sperm Quality are attributes of sperm, including count, motility, and morphology, that affect the likelihood of successful fertilization.
+	- Live Birth Occurrence is the successful delivery of a living baby following an IVF cycle.
 
 
 ## Business Requirements
 
 Dr. Emily Davis, chief fertility specialist at Hope Fertility Clinic, has observed varying IVF success rates among patients due to numerous factors. She aims to identify key predictors of IVF success to optimize treatment plans and improve patient outcomes. Dr. Davis seeks to understand how patient attributes and treatment variables correlate with IVF success, focusing on the most impactful factors.
 
-She is particularly interested in predicting success rates for new patients based on their profiles, using a predictive model for more accurate estimations and personalized treatments. To support her team, Dr. Davis requests detailed data visualizations to illustrate key variable relationships and an interactive dashboard for exploring data and making real-time predictions.
+She is particularly interested in **predicting success rates for new patients based on their profiles, using a predictive model for more accurate estimations and personalized treatments**.
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+To support her team, Dr. Davis requests **detailed data visualizations to illustrate key variable relationships and an interactive dashboard for exploring data and making real-time predictions**.
+
+## Hypothesis and how to validate
+
+1. The success rate of IVF treatments is significantly higher for patients under the age of 35 compared to those aged 35 and above.
+
+2. 
 
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
+
 * List your business requirements and a rationale to map them to the Data Visualizations and ML tasks
 
 
