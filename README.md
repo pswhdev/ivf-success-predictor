@@ -78,42 +78,66 @@ The variables are summarized on the table below, where each row represents a spe
 
 ## Project Terms & Jargon
 
-	- IVF(In Vitro Fertilization) is a medical procedure where an egg is fertilized by sperm outside the body, with the resulting embryo being implanted into the uterus.
-	- Embryo is the early developmental stage formed after an egg is fertilized by sperm, before implantation in the uterus
-	- A patient is an individual undergoing IVF fertility treatment.
-	- Number of Previous IVF/DI Cycles: The total number of IVF or donor insemination cycles the patient has previously undergone.
-	- Elective Single Embryo Transfer (eSET) is a process where only one embryo is selected for transfer to reduce the risk of multiple pregnancies.
-	- Specific Treatment Type is the exact fertility treatment protocol used, such as ICSI (Intracytoplasmic Sperm Injection), FET (Frozen Embryo Transfer), or standard IVF.
-	- Ovarian Stimulation is a process where medication is used to induce the ovaries to produce multiple eggs in a single cycle.
-	- Fresh vs. Frozen Cycle: A fresh cycle refers to the use of embryos from the current stimulation cycle, while a frozen cycle uses embryos that were frozen from a previous cycle.
-	- PGT-M and PGT-A (Preimplantation Genetic Testing): Genetic tests performed on embryos to identify genetic abnormalities before transfer. PGT-M is for monogenic disorders, and PGT-A is for aneuploidy (chromosome abnormalities).
-	- Endometriosis is a condition where tissue similar to the lining of the uterus grows outside the uterus, potentially affecting fertility.
-	- Sperm Quality are attributes of sperm, including count, motility, and morphology, that affect the likelihood of successful fertilization.
-	- Live Birth Occurrence is the successful delivery of a living baby following an IVF cycle.
+- **IVF(In Vitro Fertilization)** is a medical procedure where an egg is fertilized by sperm outside the body, with the resulting embryo being implanted into the uterus.
+  
+- **Embryo** is the early developmental stage formed after an egg is fertilized by sperm, before implantation in the uterus.
+  
+- A **patient** is an individual undergoing IVF fertility treatment.
+  
+- **Number of Previous IVF/DI Cycles**: The total number of IVF or donor insemination cycles the patient has previously undergone.
+  
+- **Elective Single Embryo Transfer (eSET)** is a process where only one embryo is selected for transfer to reduce the risk of multiple pregnancies.
+  
+- **Specific Treatment Type** is the exact fertility treatment protocol used, such as ICSI (Intracytoplasmic Sperm Injection), FET (Frozen Embryo Transfer), or standard IVF.
+  
+- **Ovarian Stimulation** is a process where medication is used to induce the ovaries to produce multiple eggs in a single cycle.
+  
+- **Fresh vs. Frozen Cycle**: A fresh cycle refers to the use of embryos from the current stimulation cycle, while a frozen cycle uses embryos that were frozen from a previous cycle.
+  
+- **PGT-M and PGT-A (Preimplantation Genetic Testing)**: Genetic tests performed on embryos to identify genetic abnormalities before transfer. PGT-M is for monogenic disorders, and PGT-A is for aneuploidy (chromosome abnormalities).
+  
+- **Endometriosis** is a condition where tissue similar to the lining of the uterus grows outside the uterus, potentially affecting fertility.
+  
+- **Sperm Quality** are attributes of sperm, including count, motility, and morphology, that affect the likelihood of successful fertilization.
+  
+- **Live Birth Occurrence** is the successful delivery of a living baby following an IVF cycle.
 
 
 ## Business Requirements
 
 Dr. Emily Davis, chief fertility specialist at Hope Fertility Clinic, has observed varying IVF success rates among patients due to numerous factors. She aims to identify key predictors of IVF success to optimize treatment plans and improve patient outcomes. Dr. Davis seeks to understand how patient attributes and treatment variables correlate with IVF success, focusing on the most impactful factors.
 
-She is particularly interested in **predicting success rates for new patients based on their profiles, using a predictive model for more accurate estimations and personalized treatments**.
+She is particularly interested in:
 
-To support her team, Dr. Davis requests **detailed data visualizations to illustrate key variable relationships and an interactive dashboard for exploring data and making real-time predictions**.
+- **Predicting success rates for new patients based on their profiles, using a predictive model for more accurate estimations and personalized treatments**.
 
-## Hypothesis and how to validate
+To support her team, Dr. Davis requests
 
-1. The patient age has direct impact on the success rate of IVF treatments.
+- **Detailed data visualizations to illustrate key variable relationships and an interactive dashboard for exploring data and making real-time predictions**.
+
+## Hypotheses and Validation Methods
+
+1. Patient age has a direct impact on the success rate of IVF treatments.
 
 2. Elective single embryo transfer (eSET) reduces the likelihood of multiple pregnancies without significantly lowering the overall success rate.
 
 3. Patients with a history of endometriosis have lower IVF success rates compared to those without endometriosis.
 
-4. The semen provider age does not have any influence on the success rate of IVF treatments.
+4. The age of the semen provider does not influence the success rate of IVF treatments.
+
+All hypotheses will be investigated using correlation studies and graphical evaluation.
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 
-* List your business requirements and a rationale to map them to the Data Visualizations and ML tasks
+- **Business Requirement 1**: Classification and Data Analysis
 
+  - A binary classifier was developed to predict the success of IVF treatments.
+
+- **Business Requirement 2**: Data Visualization and Correlation Study
+
+  - Correlation analysis (Pearson and Spearman) was conducted to understand how the variables correlate with successful treatments. The main variables were plotted against "Live birth occurrence" to provide visual insights.
+
+A dashboard was developed to allow users to visualize the data and interact with the classifier through a user-friendly interface.
 
 ## ML Business Case
 * In the previous bullet, you potentially visualized an ML task to answer a business requirement. You should frame the business case using the method we covered in the course 
