@@ -1,6 +1,14 @@
 
 # IVF Success Predictor
 
+This project was developed to create a machine learning model that predicts the success of IVF (In Vitro Fertilization) treatments based on historical patient data. With infertility affecting millions worldwide, the need for personalized and accurate treatment predictions is addressed through data-driven insights. The project aims to assist Hope Fertility Clinic in enhancing treatment success rates, optimizing patient care, and providing tailored recommendations.
+
+A comprehensive analysis of IVF treatment data was conducted to explore key factors influencing outcomes. A classification model was built to predict the likelihood of successful treatments. Additionally, detailed data visualizations and an interactive dashboard were created to provide clinicians with valuable insights, enabling informed decision-making in real-time.
+
+The project’s ultimate goal is to provide healthcare professionals with a robust tool that not only predicts treatment outcomes but also helps refine treatment strategies, improve patient satisfaction, and maximize success rates.
+
+The deployed project can be accessed [here]()
+
 ## Dataset Content
 
 The dataset was retrieved from the [Human Fertilization and Emblriology Authority - HFEA website](https://www.hfea.gov.uk/about-us/data-research/).
@@ -102,6 +110,7 @@ The variables are summarized on the table below, where each row represents a spe
   
 - **Live Birth Occurrence** is the successful delivery of a living baby following an IVF cycle.
 
+---
 
 ## Business Requirements
 
@@ -114,6 +123,8 @@ She is particularly interested in:
 To support her team, Dr. Davis requests
 
 - **Detailed data visualizations to illustrate key variable relationships and an interactive dashboard for exploring data and making real-time predictions**.
+
+---
 
 ## Hypotheses and Validation Methods
 
@@ -138,6 +149,8 @@ All hypotheses will be investigated using correlation studies and graphical eval
   - Correlation analysis (Pearson and Spearman) will be conducted to understand how the variables correlate with successful treatments. The main variables will be plotted against "Live birth occurrence" to provide visual insights.
 
 A dashboard will be developed to allow users to visualize the data and interact with the classifier through a user-friendly interface.
+
+---
 
 ## ML Business Case
 
@@ -204,13 +217,43 @@ These metrics ensure that the model not only performs well statistically but als
     - 'Partner ethnicity',
     - 'Partner Type'
 
+---
 
 ## Dashboard Design
 
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
+### Page 1: Quick project summary
 
+- Quick project summary
+  - Project Terms & Jargon
+  - Describe Project Dataset
+  - State Business Requirements
 
+## Page 2: Customer Base Churn Study
+
+  - State business requirement 2
+  - Checkbox: data inspection on customer base (display the number of rows and columns in the data, and display the first ten rows of the data)
+  - Display the most correlated variables to successful treatment and the conclusions
+  - Checkbox: Individual plots showing the treatment success for each correlated variable.
+  - Checkbox: Parallel plot using Churn and correlated variables.
+
+### Page 3: Prospect Churnometer
+
+- State business requirement 1
+- Set of widgets inputs, which relates to the treatment setup details. The set of inputs is related to the ML task to predict treatment success.
+- "Run predictive analysis" button that serves the data entered to the ML pipelines and predicts if the treatment will be successful or not.
+
+### Page 4: Project Hypothesis and Validation
+
+- State hypotheses and display validation data and conclusions.
+
+### Page 5: Predict Treatment Success
+
+- Considerations and conclusions after the pipeline is trained
+- Present ML pipeline steps
+- Feature importance
+- Pipeline performance
+
+---
 
 ## Unfixed Bugs
 
