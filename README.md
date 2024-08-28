@@ -102,12 +102,13 @@ To support her team, Dr. Davis requests **detailed data visualizations to illust
 
 ## Hypothesis and how to validate
 
-1. The success rate of IVF treatments is significantly higher for patients under the age of 35 compared to those aged 35 and above.
+1. The patient age has direct impact on the success rate of IVF treatments.
 
 2. Elective single embryo transfer (eSET) reduces the likelihood of multiple pregnancies without significantly lowering the overall success rate.
 
 3. Patients with a history of endometriosis have lower IVF success rates compared to those without endometriosis.
 
+4. The semen provider age does not have any influence on the success rate of IVF treatments.
 
 ## The rationale to map the business requirements to the Data Visualizations and ML tasks
 
