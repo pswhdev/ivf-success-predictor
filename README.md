@@ -10,69 +10,69 @@ The dataset includes information collected during fertility treatment cycles abo
 The variables are summarized on the table below, where each row represents a specific variable relevant to fertility treatment cycles and the type of data and Description according to the [HEFA's Guide to anonymised register](https://www.hfea.gov.uk/media/2682/guide-to-the-anonymised-register.pdf).
 
 
-| Field                                          | Data Type | Description |
-|------------------------------------------------|-----------|-------------|
-| Patient Age at Treatment                       | Text      | Patient’s age at treatment, banded as follows: 18-34, 35-37, 38-39, 40-42, 43-44, 45-50 |
-| Total Number of Previous IVF Cycles            | Number    | How many treatment cycles of IVF the patient has previously had |
-| Total Number of Previous DI Cycles             | Number    | How many treatment cycles of DI the patient has previously had |
-| Total Number of Previous Pregnancies - IVF and DI | Number | How many times the patient has previously been pregnant through IVF and DI |
-| Total Number of Previous Live Births - IVF or DI | Number | How many live births the patient has had through IVF or DI |
-| Causes of Infertility - Tubal Disease          | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
-| Causes of Infertility - Ovulatory Disorder     | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
-| Causes of Infertility - Male Factor            | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
-| Causes of Infertility - Patient Unexplained    | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
-| Causes of Infertility - Endometriosis          | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise |
-| Main Reason for Producing Embryos Storing Eggs | Text      | A comma separated list of the main reasons for this cycle which can include: Treatment Now, For Donation, For Storing Eggs, For Research |
-| Stimulation Used                               | Bit       | 1 if this was a stimulated cycle, 0 otherwise |
-| Egg Donor Age at Registration                  | Text      | If donor eggs were used, the donor's age at registration banded as follows: <=20, 21-25, 26-30, 31-35 |
-| Sperm Donor Age at Registration                | Text      | If donor sperm was used, the donor's age at registration banded as follows: <=20, 21-25, 26-30, 31-35, 36-40, 41-45, >45 |
-| Donated Embryo                                 | Bit       | 1 if this cycle used a donated embryo, 0 otherwise |
-| Type of Treatment - IVF or DI                  | Text      | IVF or DI |
-| Specific Treatment Type                        | Text      | A comma separated list of specific treatment types used in this cycle |
-| PGT-M Treatment                                | Bit       | 1 if this cycle involved the use of preimplantation genetic testing for monogenic disorders (formerly PGD), 0 otherwise |
-| PGT-A Treatment                                | Bit       | 1 if this cycle involved the use of preimplantation genetic testing for aneuploidy (formerly PGS), 0 otherwise |
-| Elective Single Embryo Transfer                | Bit       | 1 if this cycle involved the deliberate use of only one embryo, 0 otherwise |
-| Egg Source                                     | Text      | Indicates whether the eggs used in this cycle came from the patient (P) or a donor (D) |
-| Sperm Source                                   | Text      | Indicates whether the sperm used in this cycle came from the patient (P) or a donor (D) |
-| Fresh Cycle                                    | Bit       | 1 if this cycle used fresh embryos, 0 otherwise |
-| Frozen Cycle                                   | Bit       | 1 if this cycle used frozen embryos, 0 otherwise |
-| Eggs Thawed (0/1)                              | Number    | If this cycle used frozen eggs, the number of eggs thawed |
-| Fresh Eggs Collected                           | Text      | Number of eggs collected in this cycle, banded into 5 categories for identifiability |
-| Fresh Eggs Stored (0/1)                        | Number    | The number of eggs collected in this cycle and subsequently frozen |
-| Total Eggs Mixed                               | Text      | Number of eggs mixed with sperm in this cycle, banded into 5 categories for identifiability |
-| Total Embryos Created                          | Text      | Number of embryos created in this cycle, banded into 5 categories for identifiability |
-| Embryos Transferred                            | Number    | The number of embryos transferred into the patient in this cycle |
-| Total Embryos Thawed                           | Text      | Number of embryos thawed in this cycle, banded into 5 categories for identifiability |
-| Embryos Transferred from Eggs Micro-injected   | Number    | The number of embryos transferred into the patient in this cycle that were created using ICSI |
-| Embryos Stored for Use by Patient              | Text      | Number of embryos created and stored for future use by the patient, banded into 5 categories for identifiability |
-| Date of Embryo Transfer                        | Number    | The number of days between embryo transfer and the first date provided in the series: egg collection date; egg thaw date; egg mix date; embryo thaw date; embryo transfer date |
-| Year of Treatment                              | Number    | The year in which this cycle took place |
-| Live Birth Occurrence                          | Bit       | 1 if there were 1 or more live births as a result of this cycle, 0 otherwise |
-| Number of Live Births                          | Number    | The number of live births as a result of this cycle |
-| Early Outcome                                  | Text      | A comma separated list of the results of a patient scan |
-| Number of Foetal Sacs with Fetal Pulsation     | Number    | If foetal sacs were present in the scan, the number of sacs that evidenced foetal pulsation |
-| Heart One Weeks Gestation                      | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks |
-| Heart One Birth Outcome                        | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination |
-| Heart One Birth Weight                         | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
-| Heart One Sex                                  | Text      | The sex of the child: Male (M), Female (F) |
-| Heart One Delivery Date                        | Number    | Year the child was delivered |
-| Heart One Birth Congenital Abnormalities       | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise |
-| Heart Two Weeks Gestation                      | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks |
-| Heart Two Birth Outcome                        | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination |
-| Heart Two Birth Weight                         | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
-| Heart Two Sex                                  | Text      | The sex of the child: Male (M), Female (F) |
-| Heart Two Delivery Date                        | Number    | Year the child was delivered |
-| Heart Two Birth Congenital Abnormalities       | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise |
-| Heart Three Weeks Gestation                    | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks |
-| Heart Three Birth Outcome                      | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination |
-| Heart Three Birth Weight                       | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
-| Heart Three Sex                                | Text      | The sex of the child: Male (M), Female (F) |
-| Heart Three Delivery Date                      | Number    | Year the child was delivered |
-| Heart Three Birth Congenital Abnormalities     | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise |
-| Patient Ethnicity                              | Text      | Information on patient ethnicity has been included |
-| Partner Ethnicity                              | Text      | Information on partner ethnicity has been included |
-| Partner Type                                   | Text      | Information on partner types has been included (i.e., Male partner, female partner, no partner, surrogate) |
-| Partner Age                                    | Text      | Banded partner age information has been added where available |
+| Field                                             | Data Type | Description                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Patient Age at Treatment                          | Text      | Patient’s age at treatment, banded as follows: 18-34, 35-37, 38-39, 40-42, 43-44, 45-50                                                                                                                                                                                                                                           |
+| Total Number of Previous IVF Cycles               | Number    | How many treatment cycles of IVF the patient has previously had                                                                                                                                                                                                                                                                   |
+| Total Number of Previous DI Cycles                | Number    | How many treatment cycles of DI the patient has previously had                                                                                                                                                                                                                                                                    |
+| Total Number of Previous Pregnancies - IVF and DI | Number    | How many times the patient has previously been pregnant through IVF and DI                                                                                                                                                                                                                                                        |
+| Total Number of Previous Live Births - IVF or DI  | Number    | How many live births the patient has had through IVF or DI                                                                                                                                                                                                                                                                        |
+| Causes of Infertility - Tubal Disease             | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise                                                                                                                                                                                                                                                                 |
+| Causes of Infertility - Ovulatory Disorder        | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise                                                                                                                                                                                                                                                                 |
+| Causes of Infertility - Male Factor               | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise                                                                                                                                                                                                                                                                 |
+| Causes of Infertility - Patient Unexplained       | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise                                                                                                                                                                                                                                                                 |
+| Causes of Infertility - Endometriosis             | Bit       | 1 if the primary cause of infertility is as detailed, 0 otherwise                                                                                                                                                                                                                                                                 |
+| Main Reason for Producing Embryos Storing Eggs    | Text      | A comma separated list of the main reasons for this cycle which can include: Treatment Now, For Donation, For Storing Eggs, For Research                                                                                                                                                                                          |
+| Stimulation Used                                  | Bit       | 1 if this was a stimulated cycle, 0 otherwise                                                                                                                                                                                                                                                                                     |
+| Egg Donor Age at Registration                     | Text      | If donor eggs were used, the donor's age at registration banded as follows: <=20, 21-25, 26-30, 31-35                                                                                                                                                                                                                             |
+| Sperm Donor Age at Registration                   | Text      | If donor sperm was used, the donor's age at registration banded as follows: <=20, 21-25, 26-30, 31-35, 36-40, 41-45, >45                                                                                                                                                                                                          |
+| Donated Embryo                                    | Bit       | 1 if this cycle used a donated embryo, 0 otherwise                                                                                                                                                                                                                                                                                |
+| Type of Treatment - IVF or DI                     | Text      | IVF or DI                                                                                                                                                                                                                                                                                                                         |
+| Specific Treatment Type                           | Text      | A comma separated list of specific treatment types used in this cycle                                                                                                                                                                                                                                                             |
+| PGT-M Treatment                                   | Bit       | 1 if this cycle involved the use of preimplantation genetic testing for monogenic disorders (formerly PGD), 0 otherwise                                                                                                                                                                                                           |
+| PGT-A Treatment                                   | Bit       | 1 if this cycle involved the use of preimplantation genetic testing for aneuploidy (formerly PGS), 0 otherwise                                                                                                                                                                                                                    |
+| Elective Single Embryo Transfer                   | Bit       | 1 if this cycle involved the deliberate use of only one embryo, 0 otherwise                                                                                                                                                                                                                                                       |
+| Egg Source                                        | Text      | Indicates whether the eggs used in this cycle came from the patient (P) or a donor (D)                                                                                                                                                                                                                                            |
+| Sperm Source                                      | Text      | Indicates whether the sperm used in this cycle came from the patient (P) or a donor (D)                                                                                                                                                                                                                                           |
+| Fresh Cycle                                       | Bit       | 1 if this cycle used fresh embryos, 0 otherwise                                                                                                                                                                                                                                                                                   |
+| Frozen Cycle                                      | Bit       | 1 if this cycle used frozen embryos, 0 otherwise                                                                                                                                                                                                                                                                                  |
+| Eggs Thawed (0/1)                                 | Number    | If this cycle used frozen eggs, the number of eggs thawed                                                                                                                                                                                                                                                                         |
+| Fresh Eggs Collected                              | Text      | Number of eggs collected in this cycle, banded into 5 categories for identifiability                                                                                                                                                                                                                                              |
+| Fresh Eggs Stored (0/1)                           | Number    | The number of eggs collected in this cycle and subsequently frozen                                                                                                                                                                                                                                                                |
+| Total Eggs Mixed                                  | Text      | Number of eggs mixed with sperm in this cycle, banded into 5 categories for identifiability                                                                                                                                                                                                                                       |
+| Total Embryos Created                             | Text      | Number of embryos created in this cycle, banded into 5 categories for identifiability                                                                                                                                                                                                                                             |
+| Embryos Transferred                               | Number    | The number of embryos transferred into the patient in this cycle                                                                                                                                                                                                                                                                  |
+| Total Embryos Thawed                              | Text      | Number of embryos thawed in this cycle, banded into 5 categories for identifiability                                                                                                                                                                                                                                              |
+| Embryos Transferred from Eggs Micro-injected      | Number    | The number of embryos transferred into the patient in this cycle that were created using ICSI                                                                                                                                                                                                                                     |
+| Embryos Stored for Use by Patient                 | Text      | Number of embryos created and stored for future use by the patient, banded into 5 categories for identifiability                                                                                                                                                                                                                  |
+| Date of Embryo Transfer                           | Number    | The number of days between embryo transfer and the first date provided in the series: egg collection date; egg thaw date; egg mix date; embryo thaw date; embryo transfer date                                                                                                                                                    |
+| Year of Treatment                                 | Number    | The year in which this cycle took place                                                                                                                                                                                                                                                                                           |
+| Live Birth Occurrence                             | Bit       | 1 if there were 1 or more live births as a result of this cycle, 0 otherwise                                                                                                                                                                                                                                                      |
+| Number of Live Births                             | Number    | The number of live births as a result of this cycle                                                                                                                                                                                                                                                                               |
+| Early Outcome                                     | Text      | A comma separated list of the results of a patient scan                                                                                                                                                                                                                                                                           |
+| Number of Foetal Sacs with Fetal Pulsation        | Number    | If foetal sacs were present in the scan, the number of sacs that evidenced foetal pulsation                                                                                                                                                                                                                                       |
+| Heart One Weeks Gestation                         | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks                                                                                                                                                                                                                    |
+| Heart One Birth Outcome                           | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination                                                                                                                                                                                                        |
+| Heart One Birth Weight                            | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
+| Heart One Sex                                     | Text      | The sex of the child: Male (M), Female (F)                                                                                                                                                                                                                                                                                        |
+| Heart One Delivery Date                           | Number    | Year the child was delivered                                                                                                                                                                                                                                                                                                      |
+| Heart One Birth Congenital Abnormalities          | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise                                                                                                                                                                                                                                                                           |
+| Heart Two Weeks Gestation                         | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks                                                                                                                                                                                                                    |
+| Heart Two Birth Outcome                           | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination                                                                                                                                                                                                        |
+| Heart Two Birth Weight                            | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
+| Heart Two Sex                                     | Text      | The sex of the child: Male (M), Female (F)                                                                                                                                                                                                                                                                                        |
+| Heart Two Delivery Date                           | Number    | Year the child was delivered                                                                                                                                                                                                                                                                                                      |
+| Heart Two Birth Congenital Abnormalities          | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise                                                                                                                                                                                                                                                                           |
+| Heart Three Weeks Gestation                       | Number    | The number of weeks of gestation for this foetal heart: banded for less than 30 weeks or greater than 40 weeks                                                                                                                                                                                                                    |
+| Heart Three Birth Outcome                         | Text      | Comma separated list of the outcome of this pregnancy: Embryo reduction; live birth; miscarriage; still birth; termination                                                                                                                                                                                                        |
+| Heart Three Birth Weight                          | Text      | Banded birthweight of this child: Less than 1kg; Between 1.5kg and 1.99Kg; Between 1kg and 1.49Kg; Between 2.0kg and 2.49Kg; Between 2.5kg and 2.99Kg; Between 3.0kg and 3.49Kg; Between 3.5kg and 3.99Kg; Between 4.0kg and 4.49Kg; Between 4.5kg and 4.99Kg; Between 5.0kg and 5.49Kg; Between 5.5kg and 5.99Kg; 6kg or greater |
+| Heart Three Sex                                   | Text      | The sex of the child: Male (M), Female (F)                                                                                                                                                                                                                                                                                        |
+| Heart Three Delivery Date                         | Number    | Year the child was delivered                                                                                                                                                                                                                                                                                                      |
+| Heart Three Birth Congenital Abnormalities        | Bit       | 1 if a congenital abnormality was recorded, 0 otherwise                                                                                                                                                                                                                                                                           |
+| Patient Ethnicity                                 | Text      | Information on patient ethnicity has been included                                                                                                                                                                                                                                                                                |
+| Partner Ethnicity                                 | Text      | Information on partner ethnicity has been included                                                                                                                                                                                                                                                                                |
+| Partner Type                                      | Text      | Information on partner types has been included (i.e., Male partner, female partner, no partner, surrogate)                                                                                                                                                                                                                        |
+| Partner Age                                       | Text      | Banded partner age information has been added where available                                                                                                                                                                                                                                                                     |
 
 ---
 
@@ -131,26 +131,90 @@ All hypotheses will be investigated using correlation studies and graphical eval
 
 - **Business Requirement 1**: Classification and Data Analysis
 
-  - A binary classifier was developed to predict the success of IVF treatments.
+  - A binary classifier will be developed to predict the success of IVF treatments.
 
 - **Business Requirement 2**: Data Visualization and Correlation Study
 
-  - Correlation analysis (Pearson and Spearman) was conducted to understand how the variables correlate with successful treatments. The main variables were plotted against "Live birth occurrence" to provide visual insights.
+  - Correlation analysis (Pearson and Spearman) will be conducted to understand how the variables correlate with successful treatments. The main variables will be plotted against "Live birth occurrence" to provide visual insights.
 
-A dashboard was developed to allow users to visualize the data and interact with the classifier through a user-friendly interface.
+A dashboard will be developed to allow users to visualize the data and interact with the classifier through a user-friendly interface.
 
 ## ML Business Case
-* In the previous bullet, you potentially visualized an ML task to answer a business requirement. You should frame the business case using the method we covered in the course 
+
+### Predicting IVF Treatment Success
+
+#### Classification Model
+
+- A machine learning (ML) model was developed to predict the success of IVF treatments based on historical data. The target variable is categorical with two classes, making a binary classification model the appropriate choice. This supervised 2-class, single-label classification model outputs: 0 (no success) or 1 (success).
+
+- The goal is to provide Hope Fertility Clinic with actionable insights to optimize treatment outcomes by selecting the best combination of features.
+
+- Model Success Metrics and Rationale:
+
+  - **Accuracy (≥ 70%)**:
+    - Accuracy provides a general overview of the model’s performance, indicating how often the model correctly predicts treatment outcomes. A threshold of 70% was set to ensure the model’s predictions are significantly better than random guessing (50%). This level of accuracy is considered a baseline for the model to be deemed reliable and actionable in clinical use.
+  
+  - **Recall for "No Success" (≥ 70%) on Training and Test Sets**:
+    - High recall for "No Success" minimizes the risk of false negatives—cases where the model incorrectly predicts success when the outcome is actually no success. This is critical in a clinical setting to prevent misplaced optimism and ensure appropriate adjustments to treatment plans. A threshold of 70% ensures that most unsuccessful treatments are identified, allowing for better management of patient expectations.
+  
+  - **Precision for "Success" (≥ 70%)**:
+    - High precision reduces false positives, where the model predicts success, but the treatment fails. In the context of IVF, this helps to prevent unnecessary costs, patient stress, and inappropriate adjustments to treatment protocols. A precision threshold of 70% ensures that when the model predicts success, it does so with a reasonable level of confidence, enhancing the trustworthiness of the predictions.
+  
+  - **F1 Score (≥ 70%)**:
+    - The F1 score is the harmonic mean of precision and recall, balancing the trade-off between false positives and false negatives. The F1 score is particularly valuable when dealing with imbalanced classes, as is common in medical data. A minimum threshold of 70% ensures that the model maintains a balanced performance between detecting successes and failures, making the model both accurate and clinically meaningful.
+
+These metrics ensure that the model not only performs well statistically but also provides meaningful and actionable insights for clinical decision-making at Hope Fertility Clinic. By focusing on these performance indicators, the model aims to support better treatment planning and patient management, ultimately leading to improved IVF outcomes.
+
+- Training Data:
+  - The model was trained using data from the HEFA website for the years 2017-2018, containing approximately 150,000 records of IVF treatments.
+
+- Training Data Details:
+  - Target: Live birth occurrence;
+  - Features: All relevant variables from the dataset.
+  - During the data cleaning process, the following irrelevant variables were excluded:
+    - 'Total number of previous DI cycles',
+    - 'Main reason for producing embroys storing eggs',
+    - 'Type of treatment - IVF or DI',
+    - 'Donated embryo',
+    - 'Eggs thawed (0/1)',
+    - 'Year of treatment',
+    - 'Number of live births',
+    - 'Embryos stored for use by patient',
+    - 'Fresh eggs stored (0/1)',
+    - 'Heart three birth congenital abnormalities',
+    - 'Heart two birth congenital abnormalities',
+    - 'Heart three delivery date',
+    - 'Heart three sex',
+    - 'Heart three birth weight',
+    - 'Heart three weeks gestation',
+    - 'Heart three birth outcome',
+    - 'Heart one birth congenital abnormalities',
+    - 'Heart two birth weight',
+    - 'Heart two delivery date',
+    - 'Heart two sex',
+    - 'Heart two weeks gestation',
+    - 'Heart two birth outcome',
+    - 'Heart one birth weight',
+    - 'Heart one weeks gestation',
+    - 'Heart one delivery date',
+    - 'Heart one sex',
+    - 'Heart one birth outcome',
+    - 'Number of foetal sacs with fetal pulsation',
+    - 'Early outcome',
+    - 'Partner ethnicity',
+    - 'Partner Type'
 
 
 ## Dashboard Design
+
 * List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
 * Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
 
 
 
 ## Unfixed Bugs
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+
+* No unfixed bugs
 
 ## Deployment
 ### Heroku
@@ -164,7 +228,6 @@ A dashboard was developed to allow users to visualize the data and interact with
 3. Select your repository name and click Search. Once it is found, click Connect.
 4. Select the branch you want to deploy, then click Deploy Branch.
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
 
 ## Main Data Analysis and Machine Learning Libraries
