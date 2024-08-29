@@ -43,8 +43,8 @@ def page_eda_ivf_treatment_body():
     # Inspect data
     if st.checkbox("Inspect dataset"):
         st.write(
-            f"The dataset has {df.shape[0]} rows and {df.shape[1]} columns",
-            f"find below the first 10 rows.",
+            f"The dataset has {df.shape[0]} rows and {df.shape[1]} columns,"
+            f"find below the first 10 rows."
         )
         st.write(df.head(10))
 
@@ -91,7 +91,8 @@ def page_eda_ivf_treatment_body():
     # Display plots based on selected variable
     if selected_variable:
         st.write(f"### Plots for: {selected_variable}")
-        display_selected_plots(df_eda, selected_variable, "Live birth occurrence")
+        display_selected_plots(df_eda, selected_variable,
+                               "Live birth occurrence")
     # Parallel plot section
     if st.checkbox("Parallel Plot"):
         st.write(
@@ -100,7 +101,9 @@ def page_eda_ivf_treatment_body():
             """
         )
         # Convert the categorical column to a numeric type
-        df_eda['Live birth occurrence'] = df_eda['Live birth occurrence'].astype('category').cat.codes
+        df_eda["Live birth occurrence"] = (
+            df_eda["Live birth occurrence"].astype("category").cat.codes
+        )
 
         # Create the parallel categories plot
         fig = px.parallel_categories(df_eda, color="Live birth occurrence")
@@ -109,7 +112,8 @@ def page_eda_ivf_treatment_body():
         fig.update_layout(
             font=dict(size=8),
             margin=dict(l=50, r=50, t=50, b=50),
-            width=1000, height=600
+            width=1000,
+            height=600,
         )
 
         # Display the plot in Streamlit
@@ -117,7 +121,9 @@ def page_eda_ivf_treatment_body():
 
 
 def display_selected_plots(df, col, target_var):
-    """Displays count, proportion, and pie charts based on the selected column."""
+    """
+    Displays count, proportion, and pie charts based on the selected column.
+    """
     # Count distribution plot
     st.write(f"**Count Distribution for {col}**")
     plot_count_distribution(df, col, target_var)
@@ -195,8 +201,9 @@ def plot_count_distribution(df, col, target_var):
     else:
         order = sorted(
             # Sort other categorical columns in ascending order as strings
-            df[col].unique(), key=str
-        )  
+            df[col].unique(),
+            key=str,
+        )
 
     sns.countplot(data=df, x=col, hue=target_var, order=order)
     plt.xticks(rotation=90)
@@ -275,10 +282,13 @@ def plot_proportion_distribution(df, col, target_var):
         lambda x: x / x.sum()
     )
 
-    # Pivot the data to have proportions for each target variable as separate columns
-    df_pivot = df_prop.pivot(index=col, columns=target_var, values="proportion").fillna(
-        0
-    )
+    # Pivot the data to have proportions for each target
+    # variable as separate columns
+    df_pivot = df_prop.pivot(
+        index=col,
+        columns=target_var,
+        values="proportion"
+        ).fillna(0)
     df_pivot = df_pivot.reindex(
         order, fill_value=0
     )  # Reorder according to the predefined order
@@ -303,7 +313,10 @@ def plot_proportion_distribution(df, col, target_var):
     # Format y-axis as percentages
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     plt.xticks(rotation=90)
-    plt.title(f"Proportion Distribution of {col} by {target_var}", fontsize=20, y=1.05)
+    plt.title(
+        f"Proportion Distribution of {col} by {target_var}",
+        fontsize=20, y=1.05
+    )
     plt.ylabel("Proportion")
     plt.xlabel(col)
     plt.legend(title=target_var, loc="upper right")
@@ -379,11 +392,13 @@ def plot_pie_chart(df, col, target_var):
             # Display category name if above threshold
             label if pct > threshold else ""
             for label, pct in zip(df_pie[col], df_pie["percentage"])
-        ],  
+        ],
         autopct=lambda p: (
             # Show % only if > threshold
-            f"{p:.1f}%" if p / 100 > threshold else ""
-        ),  
+            f"{p:.1f}%"
+            if p / 100 > threshold
+            else ""
+        ),
     )
 
     # Adjust the display of labels on the pie chart
@@ -392,12 +407,11 @@ def plot_pie_chart(df, col, target_var):
 
     # Adding the legend
     plt.legend(
-        wedges, legend_labels, title=col, loc="center left", bbox_to_anchor=(1, 0.5)
+        wedges,
+        legend_labels,
+        title=col,
+        loc="center left",
+        bbox_to_anchor=(1, 0.5)
     )
     plt.title(f"Distribution of Successful Cases for {col}")
     st.pyplot(plt.gcf())
-
-
-
-
-
