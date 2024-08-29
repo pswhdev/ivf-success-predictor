@@ -8,18 +8,17 @@ def page_summary_body():
     st.success(
         """
         **The project addresses two key business requirements:**
-        
-        1. **Predicting IVF Treatment Success**: The client seeks a model that
-        can accurately predict the success rates of IVF treatments for new
-        patients based on their profiles. This will enable more precise
-        estimations and personalized treatment plans, ultimately improving
-        patient outcomes.
-        2. **Data Visualization and Interactive Dashboard**: The client
-        requires detailed data visualizations to highlight key relationships
-        between variables and an interactive dashboard that allows users to
-        explore the data and make real-time predictions. This tool aims to
-        enhance decision-making and provide actionable insights in a
-        user-friendly format.
+
+        1. Predicting IVF Treatment Success: A predictive model has been
+        integrated into the dashboard to estimate IVF success rates based
+        on patient profiles. This tool aids in exploring potential outcomes
+        and supporting personalized treatment planning.
+
+        2. Data Visualization and Interactive Dashboard: The dashboard
+        features detailed visualizations that reveal key relationships
+        between clinical variables. Users can interactively explore the
+        data and make real-time predictions, enhancing decision-making
+        through a user-friendly interface.
         """
     )
 
