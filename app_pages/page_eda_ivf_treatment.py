@@ -22,7 +22,7 @@ def page_eda_ivf_treatment_body():
         "Total embryos created",
         "Patient/Egg provider age",
         "Partner/Sperm provider age",
-        "Causes of infertility - endometriosis",
+        "Parallel Plot",
     ]
 
     st.write("### Exploratory Analysis of IVF Treatment Data")
@@ -40,7 +40,7 @@ def page_eda_ivf_treatment_body():
         """
     )
 
-    # Inspect data
+    # Inspect dataset
     if st.checkbox("Inspect dataset"):
         st.write(
             f"The dataset has {df.shape[0]} rows and {df.shape[1]} columns,"
@@ -76,60 +76,62 @@ def page_eda_ivf_treatment_body():
         """
     )
 
-    # Create a filtered DataFrame based on vars_to_study
-    df_eda = df.filter(vars_to_study + ["Live birth occurrence"])
+    # Inspect data
+        # Create a filtered DataFrame based on vars_to_study
+    df_eda = df.filter(vars_to_study[:-1] + ["Live birth occurrence"])  # Exclude "Parallel Plot" from filtering columns
 
     # Convert columns to string to avoid mixed type issues
     columns_to_convert = ["Total embryos created"]
     convert_to_string(df_eda, columns_to_convert)
 
-    # Select a variable for exploration
-    selected_variable = st.radio(
-        "Select a variable to explore:", vars_to_study, index=0
+    # Checkbox to display the radio buttons for data visualization
+    if st.checkbox("Visualize Data"):
+        # Select a variable for exploration
+        selected_variable = st.radio("Select a variable to explore:", vars_to_study, index=0)
+        # Display plots based on selected variable or Parallel Plot
+        if selected_variable == "Parallel Plot":
+            display_parallel_plot(df_eda)
+        else:
+            st.write(f"### Plots for: {selected_variable}")
+            display_selected_plots(df_eda, selected_variable, "Live birth occurrence")
+
+
+def display_parallel_plot(df):
+    """Displays the parallel categories plot."""
+    st.write(
+        """
+        * Information in yellow shows that the treatment was successful.
+        """
+    )
+    # Convert the categorical column to a numeric type
+    df['Live birth occurrence'] = df['Live birth occurrence'].astype('category').cat.codes
+
+    # Create the parallel categories plot with the Viridis color scale
+    fig = px.parallel_categories(
+        df,
+        color="Live birth occurrence",
+        color_continuous_scale="Viridis",  # Using the Viridis color scale
     )
 
-    # Display plots based on selected variable
-    if selected_variable:
-        st.write(f"### Plots for: {selected_variable}")
-        display_selected_plots(df_eda, selected_variable,
-                               "Live birth occurrence")
-    # Parallel plot section
-    if st.checkbox("Parallel Plot"):
-        st.write(
-            """
-            Information in yellow shows that the treatment was successful.
-            """
-        )
-        # Convert the categorical column to a numeric type
-        df_eda["Live birth occurrence"] = (
-            df_eda["Live birth occurrence"].astype("category").cat.codes
-        )
+    # Update layout to adjust size, font size, and margins
+    fig.update_layout(
+        font=dict(size=8),
+        margin=dict(l=50, r=50, t=50, b=50),
+        width=1000, height=600
+    )
 
-        # Create the parallel categories plot
-        fig = px.parallel_categories(df_eda, color="Live birth occurrence")
-
-        # Update layout to adjust size, font size and margins
-        fig.update_layout(
-            font=dict(size=8),
-            margin=dict(l=50, r=50, t=50, b=50),
-            width=1000,
-            height=600,
-        )
-
-        # Display the plot in Streamlit
-        st.plotly_chart(fig)
+    # Display the plot in Streamlit
+    st.plotly_chart(fig)
 
 
 def display_selected_plots(df, col, target_var):
-    """
-    Displays count, proportion, and pie charts based on the selected column.
-    """
+    """Displays count, proportion, and pie charts based on the selected column."""
     # Count distribution plot
     st.write(f"**Count Distribution for {col}**")
     plot_count_distribution(df, col, target_var)
 
-    # Proportion distribution plot
-    st.write(f"**Proportion Distribution for {col}**")
+    # Proportional distribution plot
+    st.write(f"**Proportional Distribution for {col}**")
     plot_proportion_distribution(df, col, target_var)
 
     # Pie chart
@@ -211,7 +213,7 @@ def plot_count_distribution(df, col, target_var):
     st.pyplot(plt.gcf())
 
 
-# Function to plot proportion distributions
+# Function to plot proportional distributions
 def plot_proportion_distribution(df, col, target_var):
     plt.figure(figsize=(15, 6))
 
@@ -284,11 +286,9 @@ def plot_proportion_distribution(df, col, target_var):
 
     # Pivot the data to have proportions for each target
     # variable as separate columns
-    df_pivot = df_prop.pivot(
-        index=col,
-        columns=target_var,
-        values="proportion"
-        ).fillna(0)
+    df_pivot = df_prop.pivot(index=col, columns=target_var, values="proportion").fillna(
+        0
+    )
     df_pivot = df_pivot.reindex(
         order, fill_value=0
     )  # Reorder according to the predefined order
@@ -313,11 +313,8 @@ def plot_proportion_distribution(df, col, target_var):
     # Format y-axis as percentages
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     plt.xticks(rotation=90)
-    plt.title(
-        f"Proportion Distribution of {col} by {target_var}",
-        fontsize=20, y=1.05
-    )
-    plt.ylabel("Proportion")
+    plt.title(f"Proportional Distribution of {col} by {target_var}", fontsize=20, y=1.05)
+    plt.ylabel(f"Proportional Percentage of Outcomes by {col}")
     plt.xlabel(col)
     plt.legend(title=target_var, loc="upper right")
 
@@ -407,11 +404,7 @@ def plot_pie_chart(df, col, target_var):
 
     # Adding the legend
     plt.legend(
-        wedges,
-        legend_labels,
-        title=col,
-        loc="center left",
-        bbox_to_anchor=(1, 0.5)
+        wedges, legend_labels, title=col, loc="center left", bbox_to_anchor=(1, 0.5)
     )
     plt.title(f"Distribution of Successful Cases for {col}")
     st.pyplot(plt.gcf())
