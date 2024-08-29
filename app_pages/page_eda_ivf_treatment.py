@@ -52,27 +52,41 @@ def page_eda_ivf_treatment_body():
 
     # Correlation Study Summary
     st.write(
-        f"A correlation study was conducted to better understand"
-        f"how the variables are correlated with successful treatment outcomes."
-        f"The most correlated variables are: **{vars_to_study}**."
+        """A correlation study was conducted to better understand
+        how the variables are correlated with successful treatment outcomes.
+        """
+    )
+    st.write(
+        """
+        The most correlated variables are: Date of embryo transfer,
+        Elective single embryo transfer, Embryos transferred,
+        Fresh eggs collected, Total eggs mixed, Total embryos created,
+        Patient/Egg provider age, Partner/Sperm provider age.
+        """
     )
 
     st.info(
         """
-        The correlation indications and plots below interpretation converge.
-        Successful IVF treatment outcomes typically:
+        The findings from the correlation analysis and data visualization suggest
+        key factors that are commonly associated with successful IVF treatment
+        outcomes:
 
-        * had the embryo being transferred on day 5 in a fresh cycle or from a
-        frozen cycle being transferred on the day they were thawed, day 0.
-        * had only one embryo selected electively transferred or 2 embryos
-        without elective selection.
-        * had more than 5 fresh eggs collected from patient/egg donor or were
-        from a frozen cycle.
-        * had more than 5 eggs mixed with sperm.
-        * had a range of 6-10 embryos created.
-        * happened when the Patient/Egg provider was younger than 34 years old.
-        * happened when the Partner/Sperm provider was younger than 34 years
-        old.
+        - Embryo transfers performed on day 5 of a fresh cycle or on day 0 of
+        a frozen cycle (the day they were thawed) were more likely to result
+        in success.
+        - Success was often observed when a single embryo was electively
+        transferred or when two embryos were transferred without elective
+        selection.
+        - Collecting more than 5 fresh eggs from the patient or egg donor, or
+        utilizing eggs from a frozen cycle, was linked to higher success rates.
+        - Mixing more than 5 eggs with sperm was a common factor in successful
+        outcomes.
+        - Successful treatments typically involved the creation of 6 to 10
+        embryos.
+        - Higher success rates were noted when the Patient/Egg provider was
+        younger than 34 years old.
+        - Outcomes were more favorable when the Partner/Sperm provider was
+        also younger than 34 years old.
         """
     )
 
@@ -110,7 +124,7 @@ def display_parallel_plot(df):
     fig = px.parallel_categories(
         df,
         color="Live birth occurrence",
-        color_continuous_scale="Viridis",  # Using the Viridis color scale
+        color_continuous_scale="Cividis",  
     )
 
     # Update layout to adjust size, font size, and margins
@@ -146,7 +160,7 @@ def convert_to_string(df, columns):
 
 
 def plot_count_distribution(df, col, target_var):
-    plt.figure(figsize=(12, 5))
+    plt.figure(figsize=(15, 6))
 
     # Define custom ordering for specific columns with ranges
     if col == "Date of embryo transfer":
@@ -210,6 +224,7 @@ def plot_count_distribution(df, col, target_var):
     sns.countplot(data=df, x=col, hue=target_var, order=order)
     plt.xticks(rotation=90)
     plt.title(f"{col}", fontsize=20, y=1.05)
+    plt.ylabel(f"Number of Cases")
     st.pyplot(plt.gcf())
 
 
@@ -380,31 +395,30 @@ def plot_pie_chart(df, col, target_var):
     ]
 
     # Plot pie chart for successful cases
-    plt.figure(figsize=(8, 8))
+    plt.figure(figsize=(15, 6)) 
     wedges, texts, autotexts = plt.pie(
         df_pie["count"],
         startangle=90,
         colors=palette,
         labels=[
-            # Display category name if above threshold
-            label if pct > threshold else ""
-            for label, pct in zip(df_pie[col], df_pie["percentage"])
+            label if pct > threshold else "" for label, pct in zip(df_pie[col], df_pie["percentage"])
         ],
-        autopct=lambda p: (
-            # Show % only if > threshold
-            f"{p:.1f}%"
-            if p / 100 > threshold
-            else ""
-        ),
+        autopct=lambda p: f"{p:.1f}%" if p / 100 > threshold else "",
     )
 
-    # Adjust the display of labels on the pie chart
+    # Adjust the text color on the pie chart
     for text in autotexts:
         text.set_color("black")
 
-    # Adding the legend
+    # Move the legend to the right outside the plot area
     plt.legend(
-        wedges, legend_labels, title=col, loc="center left", bbox_to_anchor=(1, 0.5)
+        wedges,
+        legend_labels,
+        title=col,
+        loc="center left",
+        # Move the legend outside the plot area
+        bbox_to_anchor=(1.05, 0.5)
     )
-    plt.title(f"Distribution of Successful Cases for {col}")
+
+    plt.title(f"Distribution of {col} in Successful IVF Cases", fontsize=20, y=1.05)
     st.pyplot(plt.gcf())
