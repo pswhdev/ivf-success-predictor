@@ -13,7 +13,7 @@ def page_eda_ivf_treatment_body():
     # Load data using the cached function
     df = load_ifv_treatment_data()
 
-    vars_to_study = [
+    to_plot = [
         "Date of embryo transfer",
         "Elective single embryo transfer",
         "Embryos transferred",
@@ -91,9 +91,10 @@ def page_eda_ivf_treatment_body():
     )
 
     # Inspect data
-        # Create a filtered DataFrame based on vars_to_study
-    df_eda = df.filter(vars_to_study[:-1] + ["Live birth occurrence"])  # Exclude "Parallel Plot" from filtering columns
 
+    # Create a filtered DataFrame based on to_plot
+    # Exclude "Parallel Plot" from filtering columns
+    df_eda = df.filter(to_plot[:-1] + ["Live birth occurrence"])
     # Convert columns to string to avoid mixed type issues
     columns_to_convert = ["Total embryos created"]
     convert_to_string(df_eda, columns_to_convert)
@@ -101,7 +102,7 @@ def page_eda_ivf_treatment_body():
     # Checkbox to display the radio buttons for data visualization
     if st.checkbox("Visualize Data"):
         # Select a variable for exploration
-        selected_variable = st.radio("Select a variable to explore:", vars_to_study, index=0)
+        selected_variable = st.radio("Select a variable to explore:", to_plot, index=0)
         # Display plots based on selected variable or Parallel Plot
         if selected_variable == "Parallel Plot":
             display_parallel_plot(df_eda)
