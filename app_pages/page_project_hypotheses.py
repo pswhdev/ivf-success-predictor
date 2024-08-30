@@ -59,8 +59,9 @@ def page_project_hypotheses_body():
             for the prevalence of endometriosis in the overall patient
             population. Further analysis shows that only a small proportion
             of patients have endometriosis, and the success rates for these
-            patients are comparable to those without the condition. This
-            suggests that endometriosis does not significantly impact IVF.
+            patients are comparable to those without the condition (see stacked
+            bar plot). This suggests that endometriosis does not significantly
+            impact IVF.
             - As a result, the data does not provide strong evidence that
             endometriosis leads to significantly lower IVF success rates.
 
@@ -233,13 +234,17 @@ def plot_pie_chart(df, col, target_var):
         f"{label}: {count} ({count/total_count:.1%})"
         for label, count in zip(df_pie[col], df_pie["count"])
     ]
-
+    # Check the number of categories
+    if len(df_pie) == 2:
+        colors = ["#019e73", "#cb78bc"]
+    else:
+        colors = palette
     # Plot pie chart for successful cases
     plt.figure(figsize=(15, 6)) 
     wedges, texts, autotexts = plt.pie(
         df_pie["count"],
         startangle=90,
-        colors=palette,
+        colors=colors,
         labels=[
             label if pct > threshold else "" for label, pct in zip(df_pie[col], df_pie["percentage"])
         ],
