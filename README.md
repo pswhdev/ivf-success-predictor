@@ -9,6 +9,33 @@ The project’s ultimate goal is to provide healthcare professionals with a robu
 
 The deployed project can be accessed [here]()
 
+## Table of contents
+- [IVF Success Predictor](#ivf-success-predictor)
+  - [Table of contents](#table-of-contents)
+  - [Dataset Content](#dataset-content)
+  - [Project Terms \& Jargon](#project-terms--jargon)
+  - [Business Requirements](#business-requirements)
+  - [Hypotheses and Validation Methods](#hypotheses-and-validation-methods)
+  - [The rationale to map the business requirements to the Data Visualizations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
+  - [ML Business Case](#ml-business-case)
+    - [Predicting IVF Treatment Success](#predicting-ivf-treatment-success)
+      - [Classification Model](#classification-model)
+  - [Dashboard Design](#dashboard-design)
+    - [Page 1: Quick Project Summary](#page-1-quick-project-summary)
+    - [Page 2: Exploratory Analysis of IVF Treatment Data Page](#page-2-exploratory-analysis-of-ivf-treatment-data-page)
+    - [Page 3: Prospect IVF Success Predictor](#page-3-prospect-ivf-success-predictor)
+    - [Page 4: Project Hypothesis and Validation](#page-4-project-hypothesis-and-validation)
+    - [Page 5: Predict Treatment Success](#page-5-predict-treatment-success)
+  - [Unfixed Bugs](#unfixed-bugs)
+  - [Deployment](#deployment)
+    - [Heroku](#heroku)
+  - [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+  - [Acknowledgements (optional)](#acknowledgements-optional)
+
+
 ## Dataset Content
 
 The dataset was retrieved from the [Human Fertilization and Emblriology Authority - HFEA website](https://www.hfea.gov.uk/about-us/data-research/).
@@ -221,30 +248,34 @@ These metrics ensure that the model not only performs well statistically but als
 
 ## Dashboard Design
 
-### Page 1: Quick project summary
+### Page 1: Quick Project Summary
 
-- Quick project summary
-  - Project Terms & Jargon
-  - Describe Project Dataset
-  - State Business Requirements
+This section of the dashboard provides a concise overview of the project's objectives, functionalities, and relevant terminology related to IVF treatments.
 
-## Page 2: Customer Base Churn Study
+### Page 2: Exploratory Analysis of IVF Treatment Data Page
 
-  - State business requirement 2
-  - Checkbox: data inspection on customer base (display the number of rows and columns in the data, and display the first ten rows of the data)
-  - Display the most correlated variables to successful treatment and the conclusions
-  - Checkbox: Individual plots showing the treatment success for each correlated variable.
-  - Checkbox: Parallel plot using Churn and correlated variables.
+This page provides an interactive dashboard for exploring IVF treatment data to identify key factors associated with treatment success at Hope Fertility Clinic.
 
-### Page 3: Prospect Churnometer
+The dashboard includes data visualizations to highlight relationships between clinical variables and IVF outcomes, assisting in data-driven decision-making.
 
-- State business requirement 1
-- Set of widgets inputs, which relates to the treatment setup details. The set of inputs is related to the ML task to predict treatment success.
-- "Run predictive analysis" button that serves the data entered to the ML pipelines and predicts if the treatment will be successful or not.
+**Introduction and Data Inspection:**
+  - The page introduces users to the exploratory analysis, highlighting its importance in understanding factors influencing IVF success rates.
+   - Users can inspect the dataset, which contains various clinical variables, by selecting an option to view the first 10 rows of data.
+
+**Correlation Study Summary:**
+   - The results of a correlation study is presented, showing how different variables are associated with successful treatment outcomes.
+
+**Data Visualization Options:**
+   - Users can select from various clinical variables to explore through visualizations such as count distributions and pie charts.
+   - A special "Parallel Plot" option allows visualization of complex relationships between multiple factors and treatment outcomes.
+
+### Page 3: Prospect IVF Success Predictor
+
+
 
 ### Page 4: Project Hypothesis and Validation
 
-- State hypotheses and display validation data and conclusions.
+This page explores the hypotheses regarding factors influencing IVF treatment success rates, using data analysis and visualization to validate or refute each hypothesis.
 
 ### Page 5: Predict Treatment Success
 

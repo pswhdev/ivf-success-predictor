@@ -7,7 +7,7 @@ from app_pages.page_eda_ivf_treatment import page_eda_ivf_treatment_body
 from app_pages.page_project_hypotheses import page_project_hypotheses_body
 
 # Create an instance of the app
-app = MultiPage(app_name="IVF Predictor")
+app = MultiPage(app_name="IVF Success Predictor")
 
 app.add_page("Quick Project Summary", page_summary_body)
 app.add_page(
