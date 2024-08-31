@@ -60,6 +60,7 @@ mdurl==0.1.2
 mistune==3.0.2
 ml-dtypes==0.3.2
 multimethod==1.12
+mypy-extensions==1.0.0
 namex==0.0.8
 narwhals==1.5.5
 nbclient==0.10.0
@@ -76,6 +77,7 @@ packaging==24.1
 pandas==1.5.3
 pandocfilters==1.5.1
 parso==0.8.4
+pathspec==0.12.1
 patsy==0.5.6
 pexpect==4.9.0
 phik==0.12.4
@@ -140,3 +142,4 @@ wordcloud==1.9.3
 wrapt==1.16.0
 xgboost==2.1.1
 ydata-profiling==4.9.0
+yellowbrick==1.5
