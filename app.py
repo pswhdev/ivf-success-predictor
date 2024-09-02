@@ -5,6 +5,7 @@ from app_pages.multipage import MultiPage
 from app_pages.page_summary import page_summary_body
 from app_pages.page_eda_ivf_treatment import page_eda_ivf_treatment_body
 from app_pages.page_project_hypotheses import page_project_hypotheses_body
+from app_pages.page_ml_dl_predict_success import page_ml_dl_predict_success_body
 
 # Create an instance of the app
 app = MultiPage(app_name="IVF Success Predictor")
@@ -15,5 +16,6 @@ app.add_page(
     page_eda_ivf_treatment_body
     )
 app.add_page("Project Hypotheses", page_project_hypotheses_body)
+app.add_page("ML: Prospect Success", page_ml_dl_predict_success_body)
 
 app.run()
