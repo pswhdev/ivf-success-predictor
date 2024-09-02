@@ -95,7 +95,7 @@ def page_ml_success_predictor_body():
     st.write(X_train.columns.to_list())
     st.image(ivf_feat_importance)
 
-    # We don't need to apply dc_fe pipeline, since X_train and X_test
+    # No need to apply dc_fe pipeline, since X_train and X_test
     # were already transformed in the jupyter notebook
     # (05 - Modeling and Evaluation Predict Success.ipynb)
 
