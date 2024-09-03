@@ -3,25 +3,11 @@ import pandas as pd
 from src.data_management import (
     load_ifv_treatment_data,
     load_pkl_file,
-    load_gzip_file
+    load_gzip_file,
+    load_best_features
     )
-# from src.machine_learning.evaluate_clf import clf_performance
-# from src.custom_transformers import (
-#     FilterIVFTreatments,
-#     DropErroneousEntries,
-#     ConvertToNumeric,
-#     ConvertToIntegers,
-#     FillSpermSource,
-#     ConvertToIntAndReplace999,
-#     ReplaceMissingValues,
-#     AppendCycleType,
-#     MicroInjectedEmbryos,
-#     DonorAgeImputer,
-#     FloatToIntTransformer,
-#     EFlaggingTransformer,
-#     TypeOfCycleAppender,
-#     DropRowsWith999,
-# )
+from src.machine_learning.evaluate_clf import clf_performance
+
 from src.machine_learning.prediction_live import (
     predict_success
     )
@@ -39,11 +25,7 @@ def page_live_predictor_body():
         f"outputs/ml_pipeline/ivf_success_predictor/{version}/"
         "clf_pipeline_model.pkl.gz"
     )
-    best_features = (pd.read_csv(
-        f"outputs/ml_pipeline/ivf_success_predictor/{version}/X_train.csv")
-                      .columns
-                      .to_list()
-                      )
+    best_features = load_best_features(version)
 
     st.write(
         """
@@ -70,111 +52,41 @@ def page_live_predictor_body():
 
 
 def DrawInputsWidgets():
-
-    # load dataset
+    # Load dataset
     df = load_ifv_treatment_data()
 
-# we create input widgets for 11 features
-    col1, col2, col3, col4 = st.columns(4)
-    col5, col6, col7, col8 = st.columns(4)
-    col9, col10, col11, col12 = st.columns(4)
+    # Get best features
+    best_features = load_best_features()
 
-    # We are using these features to feed the ML pipeline
-    # values copied from best_features
-
-    # create an empty DataFrame, which will be the live data
+    # Create an empty DataFrame, which will be the live data
     X_live = pd.DataFrame([], index=[0])
 
-    # from here on we draw the widget based on the variable type
-    # (categorical or numerical) and set initial values
-    with col1:
-        feature = "Patient age at treatment"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
+    # Dynamically create columns based on the number of best features
+    num_features = len(best_features)
+    num_cols = min(num_features, 4)  # Adjust the number of columns displayed
+    cols = st.columns(num_cols)  # Create columns
 
-    with col2:
-        feature = "Patient/Egg provider age"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
+    # Iterate over the best features and create widgets
+    for i, feature in enumerate(best_features):
+        col = cols[i % num_cols]  # Distribute widgets across columns
 
-    with col3:
-        feature = "Partner/Sperm provider age"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col4:
-        feature = "Total number of previous IVF cycles"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col5:
-        feature = "Total number of previous pregnancies - IVF and DI"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col6:
-        feature = "Causes of infertility - male factor"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col7:
-        feature = "Fresh eggs collected"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col8:
-        feature = "Total eggs mixed"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col9:
-        feature = "Total embryos created"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col10:
-        feature = "Embryos transferred"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    with col11:
-        feature = "Date of embryo transfer"
-        st_widget = st.selectbox(
-            label=feature,
-            options=df[feature].unique()
-        )
-    X_live[feature] = st_widget
-
-    # st.write(X_live)
+        # Check if feature is categorical or numerical to decide the widget type
+        if pd.api.types.is_numeric_dtype(df[feature]):
+            # Numerical input
+            st_widget = col.number_input(
+                label=feature,
+                value=float(df[feature].mean())  # Default to mean or other central value
+            )
+        else:
+            # Categorical input
+            st_widget = col.selectbox(
+                label=feature,
+                options=df[feature].unique(),
+                index=0  # Default to the first option
+            )
+        
+        # Assign the input to the DataFrame
+        X_live[feature] = st_widget
 
     return X_live
+
