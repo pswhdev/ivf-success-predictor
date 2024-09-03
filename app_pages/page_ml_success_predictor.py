@@ -7,22 +7,6 @@ from src.data_management import (
     load_gzip_file
     )
 from src.machine_learning.evaluate_clf import clf_performance
-from src.custom_transformers import (
-    FilterIVFTreatments,
-    DropErroneousEntries,
-    ConvertToNumeric,
-    ConvertToIntegers,
-    FillSpermSource,
-    ConvertToIntAndReplace999,
-    ReplaceMissingValues,
-    AppendCycleType,
-    MicroInjectedEmbryos,
-    DonorAgeImputer,
-    FloatToIntTransformer,
-    EFlaggingTransformer,
-    TypeOfCycleAppender,
-    DropRowsWith999,
-)
 
 
 def page_ml_success_predictor_body():

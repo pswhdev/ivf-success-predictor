@@ -12,6 +12,7 @@ cachetools==5.5.0
 certifi==2024.7.4
 charset-normalizer==3.3.2
 click==8.1.7
+cloudpickle==3.0.0
 comm==0.2.2
 contourpy==1.2.1
 cycler==0.12.1
@@ -29,6 +30,7 @@ gast==0.6.0
 gitdb==4.0.11
 GitPython==3.1.43
 google-pasta==0.2.0
+graphviz==0.20.3
 grpcio==1.66.0
 h5py==3.11.0
 htmlmin==0.1.12
@@ -109,11 +111,13 @@ scikit-learn==1.5.1
 scipy==1.13.1
 seaborn==0.13.2
 six==1.16.0
+slicer==0.0.8
 smmap==5.0.1
 soupsieve==2.6
 stack-data==0.6.3
 statsmodels==0.14.2
 streamlit==1.38.0
+tabulate==0.9.0
 tangled-up-in-unicode==0.2.0
 tenacity==8.5.0
 tensorboard==2.16.2
