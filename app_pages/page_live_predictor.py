@@ -5,6 +5,7 @@ from src.data_management import (
     load_pkl_file,
     load_gzip_file,
     load_best_features,
+    load_ifv_treatment_data_before_cleaning
 )
 from src.machine_learning.prediction_live import (
     predict_success,
@@ -22,8 +23,9 @@ def page_live_predictor_body():
     # Load necessary files and models
     # Define the version of the model to use
     version = "v1"
+
     # Loads the pre-processing pipeline (feature engineering steps)
-    ml_pipe_dc_fe = load_pkl_file(
+    ml_pipe_fe = load_pkl_file(
         f"outputs/ml_pipeline/ivf_success_predictor/{version}/"
         "clf_pipeline_pre_processing.pkl"
     )
@@ -64,7 +66,7 @@ def page_live_predictor_body():
         # Call the predict_success function using the live input data,
         # selected features, and loaded models
         success_prediction = predict_success(
-            X_live, best_features, ml_pipe_dc_fe, ml_pipe_model
+            X_live, best_features, ml_pipe_fe, ml_pipe_model
         )
 
 

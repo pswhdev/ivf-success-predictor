@@ -325,6 +325,7 @@ class OrdinalEncoderWithCategories(BaseEstimator, TransformerMixin):
                 "The number of category lists must match the number of"
                 "features."
             )
+        self.feature_names_in_ = X.columns  # Save the input column names
         self.encoder.fit(X[self.columns])
         return self
 
@@ -333,7 +334,8 @@ class OrdinalEncoderWithCategories(BaseEstimator, TransformerMixin):
         # Return a DataFrame with the original column names
         X[self.columns] = pd.DataFrame(
             transformed, columns=self.columns, index=X.index
-            )
+        )
         return X
+
 
 
