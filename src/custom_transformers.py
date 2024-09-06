@@ -3,6 +3,8 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import OrdinalEncoder
 
 
+
+
 class FilterIVFTreatments(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
@@ -320,7 +322,8 @@ class OrdinalEncoderWithCategories(BaseEstimator, TransformerMixin):
         # Ensures the categories match the number of features in the data
         if len(self.categories) != len(self.columns):
             raise ValueError(
-                "The number of category lists must match the number of features."
+                "The number of category lists must match the number of"
+                "features."
             )
         self.encoder.fit(X[self.columns])
         return self
@@ -328,7 +331,9 @@ class OrdinalEncoderWithCategories(BaseEstimator, TransformerMixin):
     def transform(self, X):
         transformed = self.encoder.transform(X[self.columns])
         # Return a DataFrame with the original column names
-        X[self.columns] = pd.DataFrame(transformed, columns=self.columns, index=X.index)
+        X[self.columns] = pd.DataFrame(
+            transformed, columns=self.columns, index=X.index
+            )
         return X
 
 
