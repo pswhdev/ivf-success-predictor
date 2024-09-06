@@ -45,6 +45,9 @@ def confusion_matrix_and_report(X, y, pipeline, label_map):
     # Calculate the mean F1 score for the evaluated set
     mean_f1_score = (f1_success + f1_no_success) / 2
 
+    # Display the mean F1 score
+    st.write(f"**Mean F1 Score:** {mean_f1_score:.2f}")
+
     # Return the mean F1 score
     return mean_f1_score
 

@@ -4,6 +4,7 @@ import joblib
 import gzip
 
 
+
 # Load IVF treatment data
 @st.cache_data
 def load_ifv_treatment_data():
@@ -13,6 +14,13 @@ def load_ifv_treatment_data():
         )
     return df
 
+@st.cache_data
+def load_ifv_treatment_data_before_cleaning():
+    """Loads the IVF treatment data from a CSV file before cleaning."""
+    df = pd.read_csv(
+        "outputs/datasets/collection/FertilityTreatmentData.csv.gz"
+        )
+    return df
 
 # Load a pickle file using joblib
 @st.cache_data
@@ -49,3 +57,4 @@ def load_best_features(version="v1"):
         best_features = []
 
     return best_features
+
