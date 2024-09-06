@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
-
+from sklearn.preprocessing import OrdinalEncoder
 
 
 class FilterIVFTreatments(BaseEstimator, TransformerMixin):
@@ -307,3 +307,28 @@ class DropRowsWith999(BaseEstimator, TransformerMixin):
         X_filtered = X[(X != "999").all(axis=1)]
 
         return X_filtered
+
+
+# For Ordinal Enconding to have a proper order:
+class OrdinalEncoderWithCategories(BaseEstimator, TransformerMixin):
+    def __init__(self, categories, columns):
+        self.categories = categories
+        self.columns = columns
+        self.encoder = OrdinalEncoder(categories=categories)
+
+    def fit(self, X, y=None):
+        # Ensures the categories match the number of features in the data
+        if len(self.categories) != len(self.columns):
+            raise ValueError(
+                "The number of category lists must match the number of features."
+            )
+        self.encoder.fit(X[self.columns])
+        return self
+
+    def transform(self, X):
+        transformed = self.encoder.transform(X[self.columns])
+        # Return a DataFrame with the original column names
+        X[self.columns] = pd.DataFrame(transformed, columns=self.columns, index=X.index)
+        return X
+
+
