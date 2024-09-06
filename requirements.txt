@@ -71,12 +71,10 @@ nbformat==5.10.4
 nest-asyncio==1.6.0
 networkx==3.3
 numba==0.60.0
-numpy==1.26.4
 openpyxl==3.1.5
 opt-einsum==3.3.0
 optree==0.12.1
 packaging==24.1
-pandas==1.5.3
 pandocfilters==1.5.1
 parso==0.8.4
 pathspec==0.12.1
