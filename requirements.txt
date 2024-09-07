@@ -10,7 +10,6 @@ ppscore
 scikit_learn==1.5.1
 scipy
 seaborn==0.13.2
-tensorflow-cpu
 xgboost==2.1.1
 ydata_profiling==4.9.0
 yellowbrick==1.5
