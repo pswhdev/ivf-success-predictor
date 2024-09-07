@@ -1,15 +1,9 @@
-auto_mix_prep==0.2.0
-feature_engine
-imbalanced_learn==0.12.3
-joblib==1.4.2
-matplotlib==3.9.2
 numpy
 pandas
+matplotlib==3.9.2
 plotly==5.23.0
-ppscore
 scikit_learn==1.5.1
 scipy
 seaborn==0.13.2
+joblib==1.4.2
 xgboost==2.1.1
-ydata_profiling==4.9.0
-yellowbrick==1.5
