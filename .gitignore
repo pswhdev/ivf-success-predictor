@@ -10,3 +10,8 @@ cloudinary_python.txt
 kaggle.json
 venv-311/
 venv/
+.pkl
+.csv
+.pkl.gz
+.csv.gz
+.*ipynb
